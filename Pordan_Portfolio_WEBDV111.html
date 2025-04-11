@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mark Vincent Pordan's Resume</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      background-color: #F8F9FC;
+      color: #2C2C2C;
+      padding: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header {
+      margin-bottom: 30px;
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .header-left img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #2C3E50;
+    }
+
+    .header-right {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    #name {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #2C3E50;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: #4AD6C0;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: #2C3E50;
+    }
+
+    nav {
+      background-color: #2C3E50;
+      padding: 10px 0;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 5px;
+      color: #fff;
+      font-weight: 600;
+      transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background-color: #4AD6C0;
+      color: #2C2C2C;
+      transform: scale(1.1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Content Box Style + Hover + Animation */
+    .content-box {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 25px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .content-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #2C3E50;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+      color: #34495e;
+    }
+
+    ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    form label {
+      font-weight: 600;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .button-wrapper {
+      text-align: center;
+    }
+
+    form button {
+      background-color: #4AD6C0;
+      color: #2C2C2C;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s;
+    }
+
+    form button:hover {
+      background-color: #2C3E50;
+      color: #fff;
+    }
+
+    footer {
+      background-color: #2C3E50;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: #4AD6C0;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .video-container {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background-color: #E7E6F7;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .video-container:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .slideshow-container {
+      position: relative;
+      width: 100%;
+      max-width: 200px;
+      margin: auto;
+      overflow: hidden;
+    }
+
+    .slideshow-images {
+      display: flex;
+      animation: slide 9s infinite;
+    }
+
+    .slideshow-slide {
+      width: 100%;
+      height: auto;
+    }
+
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      33.33% { transform: translateX(-100%); }
+      66.66% { transform: translateX(-200%); }
+      100% { transform: translateX(0); }
+    }
+
+    @media screen and (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .header-left img {
+        width: 120px;
+        height: 120px;
+      }
+
+      nav ul li {
+        display: block;
+        margin: 10px 0;
+      }
+
+      .slideshow-container {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="header-left">
+        <img src="https://i.imgur.com/J2MW7Sf.png" alt="Mark Vincent Pordan">
+      </div>
+      <div class="header-right">
+        <h1 id="name">Mark Vincent A. Pordan</h1>
+        <p><strong>Email:</strong> <a href="mailto:markcent0199@gmail.com">markcent0199@gmail.com</a></p>
+        <p><strong>Phone:</strong> 09293416540</p>
+        <p><strong>Facebook:</strong> <a href="https://www.facebook.com/vincentcko">Mark Vincent</a></p>
+        <p><strong>Address:</strong> #70 Dumaguete Street Pael Culiat Quezon City</p>
+      </div>
+    </div>
+  </header>
+  <hr>
+
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#Experiences">Resume</a></li>
+      <li><a href="#Skills">Skills</a></li>
+      <li><a href="#Certification">Certification</a></li>
+      <li><a href="#Education">Education</a></li>
+      <li><a href="#ContactMe">Contact Me</a></li>
+      <li><a href="#Media">Media</a></li>
+    </ul>
+  </nav>
+
+  <!-- Resume Sections -->
+  <section id="Experiences" class="content-box" style="animation-delay: 0s;">
+    <h2>Summary</h2>
+    <p>Motivated and detail-oriented professional with a background in IT and customer service...</p>
+    <h2>Experience</h2>
+    <article>
+      <h3>PORTER</h3>
+      <p>Lalamove | 2022 - 2024</p>
+      <ul><li>Customer Service</li><li>Cleanliness, Organization, and Maintenance</li></ul>
+      <h3>Coder</h3>
+      <p>Our Lady of Fatima University | Present</p>
+      <ul><li>Student</li><li>Web Developer</li></ul>
+    </article>
+  </section>
+
+  <section id="Skills" class="content-box" style="animation-delay: 0.2s;">
+    <h2>Skills</h2>
+    <ul>
+      <li>Adaptability</li>
+      <li>Customer Service</li>
+      <li>Active Listening</li>
+      <li>Communication</li>
+      <li>Time Management</li>
+      <li>Problem Solving</li>
+    </ul>
+  </section>
+
+  <section id="Certification" class="content-box" style="animation-delay: 0.4s;">
+    <h2>Certification</h2>
+    <p><strong>Graduated Senior High School</strong></p>
+    <p>May 30, 2023</p>
+    <p><strong>Completion of Work Immersion Program</strong></p>
+    <p>November 20, 2023</p>
+  </section>
+
+  <section id="Education" class="content-box" style="animation-delay: 0.6s;">
+    <h2>Education</h2>
+    <p><strong>Bachelor of Science in Information Technologies</strong></p>
+    <p>August 20, 2024 - Present</p>
+    <p><strong>Graduated Senior High – ICT at Ernesto Rondon High School</strong></p>
+    <p>June 20, 2021 - May 30, 2023</p>
+  </section>
+
+  <section id="Media" class="content-box" style="animation-delay: 0.8s;">
+    <h2>Media Portfolio</h2>
+    <article>
+      <h3>Trainings</h3>
+      <p>Description: Work Immersion Program 2023 at Commission on Election (COMELEC).</p>
+      <div class="slideshow-container">
+        <div class="slideshow-images">
+          <img src="https://i.imgur.com/YQw7Kei.jpeg" alt="Assisting Voters" class="slideshow-slide">
+          <img src="https://i.imgur.com/jqpotyc.jpeg" alt="Assisting Voters" class="slideshow-slide">
+          <img src="https://i.imgur.com/tGFp0tj.jpeg" alt="Assisting Voters" class="slideshow-slide">
+        </div>
+      </div>
+    </article>
+    <h3>Introduction Video</h3>
+    <div class="video-container">
+      <video width="100%" height="auto" autoplay muted loop>
+        <source src="https://i.imgur.com/PmJIDVF.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section>
+
+  <section id="ContactMe" class="content-box" style="animation-delay: 1s;">
+    <h2>Contact Me</h2>
+    <p>If you have any questions or project inquiries, feel free to send me a message.</p>
+    <form action="submit.php" method="POST">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required>
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required>
+      <label for="phone">Phone Number:</label>
+      <input type="text" id="phone" name="phone" required>
+      <label for="message">Your Message:</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+      <div class="button-wrapper">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p><a href="#TOP">BACK TO TOP</a></p>
+    <p>&copy; 2025 Mark Vincent Pordan</p>
+  </footer>
+
+</body>
+</html>
